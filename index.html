@@ -1,0 +1,1488 @@
+       <!DOCTYPE html>
+<html lang="ka" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ST SEA TOUCH — პირველი საქართველოში | Sea Salt Spray</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Sans Georgian & Cinzel / Cormorant Garamond / Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Noto+Sans+Georgian:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans Georgian"', 'Inter', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        display: ['"Cinzel"', 'serif'],
+                    },
+                    colors: {
+                        obsidian: '#050505',
+                        charcoal: '#0F0F0F',
+                        ash: '#1A1A1A',
+                        silver: '#D4D4D4',
+                        pearl: '#FAFAFA',
+                    },
+                    animation: {
+                        'mist-drift': 'mistDrift 9s ease-in-out infinite',
+                        'float-subtle': 'floatSubtle 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        mistDrift: {
+                            '0%, 100%': { opacity: '0.45', transform: 'translateX(0px) scale(1)' },
+                            '50%': { opacity: '0.75', transform: 'translateX(12px) scale(1.04)' },
+                        },
+                        floatSubtle: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-6px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #FFFFFF;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Fine Mist Spray Effect matching product photography */
+        .spray-mist-cone {
+            background: radial-gradient(ellipse at 0% 50%, rgba(255, 255, 255, 0.28) 0%, rgba(212, 212, 212, 0.09) 38%, rgba(5, 5, 5, 0) 75%);
+            filter: blur(8px);
+        }
+
+        .studio-backdrop {
+            background: radial-gradient(circle at 32% 52%, rgba(255, 255, 255, 0.09) 0%, rgba(15, 15, 15, 0.6) 45%, #050505 85%);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A2A2A;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555555;
+        }
+    </style>
+</head>
+<body class="font-sans selection:bg-white selection:text-black">
+
+    <!-- CRISP WHITE TOP NAVBAR (Matching Mockup Layout) -->
+    <header class="sticky top-0 z-40 bg-white text-black border-b border-neutral-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+            <div class="relative flex items-center justify-between h-16 sm:h-20">
+
+                <!-- LEFT: Cart Button ('კალათა') -->
+                <div class="flex items-center space-x-4 z-10">
+                    <button id="open-cart-btn" class="group flex items-center space-x-2.5 py-2 px-3 rounded-full hover:bg-neutral-100 transition text-black">
+                        <i data-lucide="shopping-cart" class="w-5 h-5 stroke-[1.75]"></i>
+                        <span class="text-xs sm:text-sm font-medium tracking-wide">კალათა</span>
+                        <span id="cart-badge" class="inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 text-[11px] font-semibold bg-black text-white rounded-full">
+                            0
+                        </span>
+                    </button>
+                </div>
+
+                <!-- CENTER: Prominent Circular Ornate Silver-on-Black 'ST' Monogram Logo -->
+                <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pt-2 sm:pt-3">
+                    <a href="#top" aria-label="ST Sea Touch მთავარი" class="block group focus:outline-none">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#0A0A0A] border-2 border-white shadow-[0_8px_25px_rgba(0,0,0,0.35)] flex items-center justify-center p-1 transition-transform duration-500 group-hover:scale-105 overflow-hidden">
+                            <!-- Custom Image Tag (if user uploads/replaces) + Exact Ornate Baroque 'ST' Monogram SVG -->
+                            <img id="custom-logo-img" src="" alt="ST Sea Touch Logo" class="hidden w-full h-full object-cover rounded-full">
+                            <svg id="default-logo-svg" viewBox="0 0 200 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="silverMetallic" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#F5F5F5"/>
+                                        <stop offset="45%" stop-color="#BDBDBD"/>
+                                        <stop offset="75%" stop-color="#E8E8E8"/>
+                                        <stop offset="100%" stop-color="#8E8E8E"/>
+                                    </linearGradient>
+                                </defs>
+                                <!-- Outer Silver Ring -->
+                                <circle cx="100" cy="100" r="93" fill="#0B0B0B" stroke="url(#silverMetallic)" stroke-width="2.5"/>
+                                <circle cx="100" cy="100" r="87" fill="none" stroke="url(#silverMetallic)" stroke-width="0.6" stroke-opacity="0.45"/>
+
+                                <!-- Ornate Filigree Flourishes (Left, Right & Bottom) -->
+                                <g stroke="url(#silverMetallic)" fill="none" stroke-linecap="round">
+                                    <!-- Left Scrollwork -->
+                                    <path d="M56 54 C36 52, 34 74, 48 78 C32 82, 26 96, 18 100 C26 104, 32 118, 48 122 C34 126, 36 148, 56 146" stroke-width="2.2"/>
+                                    <path d="M52 64 C42 64, 42 74, 50 76 M52 136 C42 136, 42 126, 50 124 M44 92 C35 92, 35 108, 44 108" stroke-width="1.4"/>
+                                    <!-- Right Scrollwork -->
+                                    <path d="M144 54 C164 52, 166 74, 152 78 C168 82, 174 96, 182 100 C174 104, 168 118, 152 122 C166 126, 164 148, 144 146" stroke-width="2.2"/>
+                                    <path d="M148 64 C158 64, 158 74, 150 76 M148 136 C158 136, 158 126, 150 124 M156 92 C165 92, 165 108, 156 108" stroke-width="1.4"/>
+                                    <!-- Bottom Crest Flourish -->
+                                    <path d="M62 150 C74 164, 92 162, 100 174 C108 162, 126 164, 138 150" stroke-width="2.2"/>
+                                    <path d="M74 148 C84 156, 94 155, 100 163 C106 155, 116 156, 126 148" stroke-width="1.3"/>
+                                </g>
+
+                                <!-- Central Intertwined Victorian 'T' & 'S' Monogram -->
+                                <!-- Letter T -->
+                                <path d="M66 56 H134 L138 72 C131 67, 124 65, 114 65 H105 V140 C105 147, 110 151, 116 153 H84 C90 151, 95 147, 95 140 V65 H86 C76 65, 69 67, 62 72 Z" fill="url(#silverMetallic)"/>
+                                <!-- Engraved Inner Detail on T -->
+                                <line x1="100" y1="63" x2="100" y2="145" stroke="#0B0B0B" stroke-width="1.5" stroke-dasharray="2.5 2"/>
+
+                                <!-- Intertwined Letter S -->
+                                <path d="M123 79 C123 70, 112 66, 98 66 C81 66, 71 75, 71 87 C71 100, 84 105, 101 111 C116 116, 125 121, 125 131 C125 141, 114 147, 98 147 C83 147, 73 141, 69 132 L63 144 C72 151, 85 154, 99 154 C119 154, 133 144, 133 130 C133 116, 120 109, 102 103 C87 98, 79 93, 79 85 C79 77, 88 72, 100 72 C110 72, 117 76, 120 83 Z" fill="url(#silverMetallic)" stroke="#0B0B0B" stroke-width="1.2"/>
+                                <!-- Engraved Inner Spine on S -->
+                                <path d="M76 86 C76 96, 88 101, 101 106 C115 111, 128 117, 128 130" fill="none" stroke="#0B0B0B" stroke-width="1.3" stroke-dasharray="2.5 2"/>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- RIGHT: Search Toggle ('ძებნა') -->
+                <div class="flex items-center space-x-2 z-10">
+                    <button id="open-search-btn" class="flex items-center space-x-2 py-2 px-3 rounded-full hover:bg-neutral-100 transition text-black">
+                        <span class="text-xs sm:text-sm font-medium tracking-wide">ძებნა</span>
+                        <i data-lucide="search" class="w-4 h-4 sm:w-5 sm:h-5 stroke-[1.75]"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Quick Search Strip (Matching Smartphone Mockup) -->
+        <div class="sm:hidden px-4 pb-3 bg-white">
+            <button id="mobile-search-bar-trigger" class="w-full flex items-center justify-between px-3.5 py-2 rounded-lg bg-neutral-100 border border-neutral-200 text-neutral-500 text-xs">
+                <span>ძებნა პროდუქტსა და შემადგენლობაში...</span>
+                <i data-lucide="search" class="w-3.5 h-3.5 text-neutral-600"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION: Dark Luxury Studio Showcase (Matching Mockup) -->
+    <section id="top" class="relative studio-backdrop border-b border-ash overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-12 sm:py-20 lg:py-24">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+
+                <!-- LEFT COLUMN: Matte Black Spray Bottle ('SPRAY - FOR HAIR TEXTURE 150ml | 5.1 fl. oz.') -->
+                <div class="lg:col-span-6 flex flex-col items-center justify-center relative">
+                    <div class="relative w-full max-w-[340px] sm:max-w-[440px] aspect-[4/3] sm:aspect-[5/4] flex items-center justify-center">
+
+                        <!-- Fine Mist Spray Cone Shooting Right from Nozzle -->
+                        <div class="absolute left-[48%] top-[15%] w-[52%] h-[28%] spray-mist-cone animate-mist-drift pointer-events-none rounded-r-full"></div>
+
+                        <!-- Uploaded Custom Product Image (Hidden unless user uploads a file) -->
+                        <img id="custom-product-img" src="" alt="ST Sea Touch Spray" class="hidden w-full h-full object-contain rounded-2xl z-10">
+
+                        <!-- Photorealistic Matte Black 150ml Bottle SVG matching user's exact bottle -->
+                        <div id="default-bottle-render" class="relative z-10 w-full h-full flex items-center justify-center animate-float-subtle">
+                            <svg viewBox="0 0 420 340" class="w-full h-full drop-shadow-[0_28px_38px_rgba(0,0,0,0.95)]" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <!-- Matte Black Bottle Shading -->
+                                    <linearGradient id="matteBottleBody" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#0A0A0A"/>
+                                        <stop offset="18%" stop-color="#262626"/>
+                                        <stop offset="35%" stop-color="#141414"/>
+                                        <stop offset="72%" stop-color="#090909"/>
+                                        <stop offset="92%" stop-color="#1C1C1C"/>
+                                        <stop offset="100%" stop-color="#060606"/>
+                                    </linearGradient>
+                                    <!-- Label Subtle Matte Contrast -->
+                                    <linearGradient id="matteLabel" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#0D0D0D"/>
+                                        <stop offset="22%" stop-color="#222222"/>
+                                        <stop offset="50%" stop-color="#141414"/>
+                                        <stop offset="85%" stop-color="#0C0C0C"/>
+                                        <stop offset="100%" stop-color="#181818"/>
+                                    </linearGradient>
+                                    <!-- Silver Foil Print -->
+                                    <linearGradient id="bottleSilverFoil" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#FFFFFF"/>
+                                        <stop offset="50%" stop-color="#C8C8C8"/>
+                                        <stop offset="100%" stop-color="#9A9A9A"/>
+                                    </linearGradient>
+                                    <!-- Mist Particles -->
+                                    <radialGradient id="mistGlow" cx="0%" cy="50%" r="100%">
+                                        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.45"/>
+                                        <stop offset="35%" stop-color="#D4D4D4" stop-opacity="0.14"/>
+                                        <stop offset="100%" stop-color="#050505" stop-opacity="0"/>
+                                    </radialGradient>
+                                </defs>
+
+                                <!-- Atmospheric Mist Plume from Nozzle -->
+                                <path d="M196 52 L395 16 Q412 54 392 92 L196 60 Z" fill="url(#mistGlow)"/>
+                                <circle cx="215" cy="54" r="1.2" fill="#FFF" opacity="0.45"/>
+                                <circle cx="232" cy="48" r="1" fill="#FFF" opacity="0.35"/>
+                                <circle cx="248" cy="58" r="1.3" fill="#FFF" opacity="0.3"/>
+                                <circle cx="268" cy="44" r="0.9" fill="#FFF" opacity="0.25"/>
+                                <circle cx="285" cy="53" r="1.1" fill="#FFF" opacity="0.2"/>
+                                <circle cx="310" cy="47" r="0.8" fill="#FFF" opacity="0.15"/>
+
+                                <!-- Spray Actuator Cap -->
+                                <rect x="168" y="34" width="26" height="34" rx="3" fill="url(#matteBottleBody)" stroke="#2E2E2E" stroke-width="0.6"/>
+                                <!-- Nozzle Orifice on Right -->
+                                <rect x="192" y="48" width="5" height="9" rx="1.5" fill="#1F1F1F" stroke="#555" stroke-width="0.6"/>
+                                <circle cx="195" cy="52.5" r="1.5" fill="#D4D4D4"/>
+
+                                <!-- Middle Collar Ring -->
+                                <rect x="163" y="68" width="36" height="14" rx="2" fill="url(#matteBottleBody)" stroke="#2B2B2B" stroke-width="0.6"/>
+
+                                <!-- Ribbed Neck Closure -->
+                                <rect x="155" y="82" width="52" height="28" rx="3" fill="url(#matteBottleBody)" stroke="#2A2A2A" stroke-width="0.7"/>
+                                <line x1="155" y1="88" x2="207" y2="88" stroke="#050505" stroke-width="1"/>
+                                <line x1="155" y1="104" x2="207" y2="104" stroke="#2D2D2D" stroke-width="0.7"/>
+
+                                <!-- Bottle Rounded Shoulders & Cylindrical Body -->
+                                <path d="M126 142 C126 120 144 110 160 110 H202 C218 110 236 120 236 142 V304 C236 314 228 320 218 320 H144 C134 320 126 314 126 304 Z" fill="url(#matteBottleBody)" stroke="#262626" stroke-width="0.8"/>
+
+                                <!-- Wrap-Around Matte Black Label -->
+                                <rect x="126.5" y="148" width="109" height="148" fill="url(#matteLabel)" stroke="#242424" stroke-width="0.5"/>
+
+                                <!-- Ornate Silver Monogram Crest on Bottle Label -->
+                                <g transform="translate(181, 194) scale(0.46)">
+                                    <!-- Left & Right Scrollwork -->
+                                    <g stroke="url(#bottleSilverFoil)" fill="none" stroke-linecap="round">
+                                        <path d="M-44 -46 C-64 -48, -66 -26, -52 -22 C-68 -18, -74 -4, -82 0 C-74 4, -68 18, -52 22 C-66 26, -64 48, -44 46" stroke-width="2.6"/>
+                                        <path d="M-48 -36 C-58 -36, -58 -26, -50 -24 M-48 36 C-58 36, -58 26, -50 24" stroke-width="1.6"/>
+                                        <path d="M44 -46 C64 -48, 66 -26, 52 -22 C68 -18, 74 -4, 82 0 C74 4, 68 18, 52 22 C66 26, 64 48, 44 46" stroke-width="2.6"/>
+                                        <path d="M48 -36 C58 -36, 58 -26, 50 -24 M48 36 C58 36, 58 26, 50 24" stroke-width="1.6"/>
+                                    </g>
+                                    <!-- Monogram T -->
+                                    <path d="M-34 -44 H34 L38 -28 C31 -33, 24 -35, 14 -35 H5 V40 C5 47, 10 51, 16 53 H-16 C-10 51, -5 47, -5 40 V-35 H-14 C-24 -35, -31 -33, -38 -28 Z" fill="url(#bottleSilverFoil)"/>
+                                    <line x1="0" y1="-37" x2="0" y2="45" stroke="#111" stroke-width="1.6" stroke-dasharray="2.5 2"/>
+                                    <!-- Monogram S -->
+                                    <path d="M23 -21 C23 -30, 12 -34, -2 -34 C-19 -34, -29 -25, -29 -13 C-29 0, -16 5, 1 11 C16 16, 25 21, 25 31 C25 41, 14 47, -2 47 C-17 47, -27 41, -31 32 L-37 44 C-28 51, -15 54, -1 54 C19 54, 33 44, 33 30 C33 16, 20 9, 2 3 C-13 -2, -21 -7, -21 -15 C-21 -23, -12 -28, 0 -28 C10 -28, 17 -24, 20 -17 Z" fill="url(#bottleSilverFoil)" stroke="#111" stroke-width="1.2"/>
+                                </g>
+
+                                <!-- Label Typography matching exact user product image -->
+                                <text x="181" y="246" text-anchor="middle" fill="url(#bottleSilverFoil)" font-family="'Cinzel', 'Cormorant Garamond', serif" font-size="18.5" font-weight="600" letter-spacing="2.5">
+                                    SPRAY
+                                </text>
+                                <text x="181" y="264" text-anchor="middle" fill="#D4D4D4" font-family="'Inter', sans-serif" font-size="7.4" font-weight="400" letter-spacing="1.1">
+                                    FOR HAIR TEXTURE
+                                </text>
+                                <text x="181" y="278" text-anchor="middle" fill="#A3A3A3" font-family="'Inter', sans-serif" font-size="5.6" letter-spacing="0.8">
+                                    150ml | 5.1 fl. oz.
+                                </text>
+
+                                <!-- Subtle Studio Floor Reflection -->
+                                <ellipse cx="181" cy="324" rx="58" ry="5" fill="#000000" opacity="0.85"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                  <!-- Product Photo with 'st.jpg' -->
+                    <div class="mt-2 flex items-center space-x-3">
+                        <div class="inline-flex items-center space-x-1.5 text-[11px] text-neutral-400 border border-white/10 rounded-full px-3 py-1 bg-white/[0.02]">
+                            <i data-lucide="image" class="w-3 h-3"></i>
+                            <span>ფოტო: st.jpg</span>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    // ავტომატურად აყენებს st.jpg-ს ფოტოს წყაროდ
+                    window.addEventListener('DOMContentLoaded', () => {
+                        const container = document.currentScript ? document.currentScript.previousElementSibling : document.querySelector('section img');
+                        const img = document.querySelector('section img');
+                        if (img) {
+                            img.src = "st.jpg";
+                        }
+                    });
+                </script>
+
+                <!-- RIGHT COLUMN: Headline, Curl Restoration Copy & Pill 'Buy Now' Button (Matching Mockup) -->
+                <div class="lg:col-span-6 text-center lg:text-left space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-white/15 bg-white/[0.03] text-[11px] tracking-[0.22em] uppercase text-silver">
+                        <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                        <span>ST SEA TOUCH • 150 ML</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-[52px] font-normal tracking-tight leading-[1.18] text-white">
+                        ST SEA TOUCH – პირველი საქართველოში
+                    </h1>
+
+                    <p class="text-base sm:text-xl text-neutral-300 font-light leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        პრემიუმ Sea Salt Spray – <span class="text-white font-normal">ხვეული თმის აღდგენა</span> და ბუნებრივი ტექსტურა
+                    </p>
+
+                    <!-- Price & Quantity Selector -->
+                    <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <div class="flex items-baseline space-x-2">
+                            <span id="hero-price-display" class="text-2xl sm:text-3xl font-medium text-white">45 ₾</span>
+                            <span id="hero-stock-badge" class="text-xs text-neutral-400 tracking-wider">/ 150ml | 5.1 fl. oz. • მარაგშია</span>
+                        </div>
+
+                        <div class="flex items-center border border-white/25 rounded-full px-3 py-1.5 bg-charcoal">
+                            <button id="qty-minus" aria-label="შემცირება" class="w-7 h-7 flex items-center justify-center text-neutral-400 hover:text-white transition">
+                                <i data-lucide="minus" class="w-3.5 h-3.5"></i>
+                            </button>
+                            <span id="product-qty" class="w-8 text-center text-sm font-medium">1</span>
+                            <button id="qty-plus" aria-label="გაზრდა" class="w-7 h-7 flex items-center justify-center text-neutral-400 hover:text-white transition">
+                                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Pill-Shaped Crisp White CTA Buttons ('Buy Now' + Add to Cart) -->
+                    <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
+                        <button id="buy-now-btn" class="w-full sm:w-auto min-w-[200px] px-10 py-3.5 rounded-full bg-white text-black font-medium text-sm sm:text-base tracking-wide hover:bg-neutral-200 active:scale-[0.98] transition-all duration-300 shadow-[0_0_25px_rgba(255,255,255,0.18)]">
+                            Buy Now
+                        </button>
+                        <button id="add-to-cart-btn" class="w-full sm:w-auto px-7 py-3.5 rounded-full border border-white/30 text-white hover:bg-white hover:text-black transition-all duration-300 text-xs sm:text-sm tracking-wider uppercase font-medium">
+                            კალათაში დამატება
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CRISP WHITE EDITORIAL & FEATURES STRIP (Directly Matching Mockup Layout) -->
+    <section id="about-section" class="bg-white text-black py-16 sm:py-24 border-b border-neutral-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-start">
+
+                <!-- LEFT: 3 Key Benefit Icons & Labels (Matching Mockup Icons) -->
+                <div class="lg:col-span-5 grid grid-cols-3 gap-4 sm:gap-6 text-center pt-2">
+
+                    <!-- Icon 1: Natural Texture -->
+                    <div class="flex flex-col items-center space-y-3 group">
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl border border-neutral-200 bg-pearl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                                <path d="M6 4c2 4-2 8 0 12s-2 4 0 4"/>
+                                <path d="M12 3c2 4-2 8 0 12s-2 5 0 6"/>
+                                <path d="M18 4c2 4-2 8 0 12s-2 4 0 4"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="block text-xs sm:text-sm font-semibold text-black leading-tight">Natural Texture</span>
+                            <span class="block text-[11px] text-neutral-500 mt-1">ბუნებრივი ტექსტურა</span>
+                        </div>
+                    </div>
+
+                    <!-- Icon 2: Curl Restoration -->
+                    <div class="flex flex-col items-center space-y-3 group">
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl border border-neutral-200 bg-pearl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                                <path d="M9 3c4 2 4 6 0 8s-4 6 0 8c2 1 4 1 5 2"/>
+                                <path d="M13 4c3 2 3 5 0 7s-3 5 0 7"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="block text-xs sm:text-sm font-semibold text-black leading-tight">Curl Restoration</span>
+                            <span class="block text-[11px] text-neutral-500 mt-1">ხვეული თმის აღდგენა</span>
+                        </div>
+                    </div>
+
+                    <!-- Icon 3: Volume Boost -->
+                    <div class="flex flex-col items-center space-y-3 group">
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl border border-neutral-200 bg-pearl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M13 3L6 14h6l-1 7 7-11h-6l1-7z"/>
+                                <path d="M19 5v4M17 7h4"/>
+                                <path d="M5 16v3M3.5 17.5h3"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="block text-xs sm:text-sm font-semibold text-black leading-tight">Volume Boost</span>
+                            <span class="block text-[11px] text-neutral-500 mt-1">მოცულობის გაზრდა</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- MIDDLE: About Us ('ჩვენ შესახებ') -->
+                <div class="lg:col-span-4 space-y-3 border-t lg:border-t-0 lg:border-l border-neutral-200 pt-8 lg:pt-0 lg:pl-8">
+                    <h2 class="text-lg sm:text-xl font-semibold tracking-tight text-black">
+                        About Us <span class="text-neutral-400 font-light text-sm ml-1">/ ჩვენ შესახებ</span>
+                    </h2>
+                    <p class="text-xs sm:text-sm text-neutral-700 leading-relaxed font-normal">
+                        <strong>ST SEA TOUCH</strong> არის პირველი ქართული ბრენდი, რომელმაც შექმნა პრემიუმ კლასის <strong>Sea Salt Spray</strong> — სპეციალურად შექმნილი ფორმულა <strong>ხვეული და ტალღოვანი თმის აღდგენისთვის</strong>. სპრეი ანიჭებს თმას ზღვის მინერალების ბუნებრივ ტექსტურას, მსუბუქ ფიქსაციას და მოცულობას დამძიმებისა და გამოშრობის გარეშე.
+                    </p>
+                </div>
+
+                <!-- RIGHT: Ingredients ('შემადგენლობა') -->
+                <div id="ingredients-section" class="lg:col-span-3 space-y-3 border-t lg:border-t-0 lg:border-l border-neutral-200 pt-8 lg:pt-0 lg:pl-8">
+                    <h2 class="text-lg sm:text-xl font-semibold tracking-tight text-black">
+                        Ingredients <span class="text-neutral-400 font-light text-sm ml-1">/ შემადგენლობა</span>
+                    </h2>
+                    <ul class="space-y-2 text-xs sm:text-sm text-neutral-700">
+                        <li class="flex items-start space-x-2">
+                            <span class="text-black font-bold">•</span>
+                            <span><strong>ზღვის მინერალური მარილი</strong> (Sea Salt) — ბუნებრივი ტექსტურა</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <span class="text-black font-bold">•</span>
+                            <span><strong>ალოე ვერას ექსტრაქტი</strong> (Aloe Vera) — ღრმა დატენიანება</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <span class="text-black font-bold">•</span>
+                            <span><strong>პრო-ვიტამინი B5</strong> (Panthenol) — ხვეული თმის აღდგენა</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <span class="text-black font-bold">•</span>
+                            <span><strong>ქოქოსის წყალი & მაგნიუმი</strong> — სირბილე და ელასტიურობა</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE EFFECT SELECTOR & HOW TO USE SECTION (Dark Luxury Contrast) -->
+    <section class="bg-obsidian text-white py-20 sm:py-24 border-b border-ash">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 space-y-20">
+
+            <!-- Interactive Styling & Restoration Mode Switcher -->
+            <div class="rounded-3xl border border-ash bg-charcoal p-6 sm:p-10 lg:p-12">
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-8 border-b border-ash">
+                    <div>
+                        <span class="text-[11px] uppercase tracking-[0.25em] text-neutral-400">პერსონალური შედეგი</span>
+                        <h3 class="text-2xl sm:text-3xl font-light mt-1">აირჩიეთ სასურველი ეფექტი</h3>
+                    </div>
+                    <!-- Interactive Tabs -->
+                    <div class="flex flex-wrap gap-2">
+                        <button data-effect="curl" class="effect-tab active px-4 py-2.5 rounded-full text-xs tracking-wider uppercase font-medium bg-white text-black transition">
+                            ხვეული თმის აღდგენა
+                        </button>
+                        <button data-effect="wave" class="effect-tab px-4 py-2.5 rounded-full text-xs tracking-wider uppercase font-medium border border-white/20 text-neutral-300 hover:border-white transition">
+                            ტალღოვანი ტექსტურა
+                        </button>
+                        <button data-effect="volume" class="effect-tab px-4 py-2.5 rounded-full text-xs tracking-wider uppercase font-medium border border-white/20 text-neutral-300 hover:border-white transition">
+                            ყოველდღიური მოცულობა
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dynamic Effect Display Content -->
+                <div id="effect-content" class="pt-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                    <div class="md:col-span-2 space-y-3">
+                        <h4 id="effect-title" class="text-xl sm:text-2xl font-medium text-white">
+                            ხვეული თმის სტრუქტურის აღდგენა და გამოკვეთა
+                        </h4>
+                        <p id="effect-desc" class="text-sm text-neutral-300 font-light leading-relaxed">
+                            იდეალურია მოდუნებული ან დაზიანებული ხვეულებისთვის. ზღვის მინერალებისა და პანთენოლის კომბინაცია აღადგენს თმის ბუნებრივ სპირალს, ხსნის სიმძიმეს და უნარჩუნებს მკაფიო ფორმას მთელი დღის განმავლობაში.
+                        </p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-obsidian border border-white/10 space-y-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-neutral-400">რეკომენდებული დოზა</span>
+                        <p id="effect-dosage" class="text-sm font-medium text-white">4–6 შესხურება ნოტიო თმაზე</p>
+                        <p id="effect-finish" class="text-xs text-neutral-400">დასრულება: ბუნებრივი მქრქალი (Matte)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3-Step Visual Guide: როგორ გამოვიყენოთ -->
+            <div>
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-[11px] uppercase tracking-[0.25em] text-neutral-400">3 მარტივი ნაბიჯი</span>
+                    <h3 class="text-2xl sm:text-4xl font-light mt-2">როგორ გამოვიყენოთ ST Sea Touch</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-7 rounded-3xl border border-ash bg-charcoal/60 hover:border-white/30 transition">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="font-display text-2xl text-silver">01</span>
+                            <i data-lucide="refresh-cw" class="w-5 h-5 text-neutral-400"></i>
+                        </div>
+                        <h4 class="text-lg font-medium mb-2">შეანჯღრიეთ</h4>
+                        <p class="text-xs sm:text-sm text-neutral-400 font-light leading-relaxed">
+                            გამოყენებამდე კარგად შეანჯღრიეთ ფლაკონი, რათა ზღვის მარილის მინერალები და ალოე ვერა თანაბრად გააქტიურდეს.
+                        </p>
+                    </div>
+
+                    <div class="p-7 rounded-3xl border border-ash bg-charcoal/60 hover:border-white/30 transition">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="font-display text-2xl text-silver">02</span>
+                            <i data-lucide="sparkles" class="w-5 h-5 text-neutral-400"></i>
+                        </div>
+                        <h4 class="text-lg font-medium mb-2">შეისხურეთ თმაზე</h4>
+                        <p class="text-xs sm:text-sm text-neutral-400 font-light leading-relaxed">
+                            თანაბრად შეისხურეთ ოდნავ ნოტიო ან მშრალ თმაზე 15–20 სმ დისტანციიდან, ძირებიდან ბოლოებამდე.
+                        </p>
+                    </div>
+
+                    <div class="p-7 rounded-3xl border border-ash bg-charcoal/60 hover:border-white/30 transition">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="font-display text-2xl text-silver">03</span>
+                            <i data-lucide="hand" class="w-5 h-5 text-neutral-400"></i>
+                        </div>
+                        <h4 class="text-lg font-medium mb-2">მიეცით ფორმა ხელით</h4>
+                        <p class="text-xs sm:text-sm text-neutral-400 font-light leading-relaxed">
+                            თითებით მსუბუქად მოუჭირეთ ხვეულებს (Scrunch მოძრაობით) და დატოვეთ ბუნებრივად გასაშრობად ან გამოიყენეთ დიფუზორი.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ ACCORDION (White Contrast Strip) -->
+    <section class="bg-white text-black py-16 sm:py-24 border-b border-neutral-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-8">
+            <div class="text-center mb-12">
+                <span class="text-[11px] uppercase tracking-[0.25em] text-neutral-500 font-semibold">ხშირად დასმული კითხვები</span>
+                <h3 class="text-2xl sm:text-3xl font-light mt-2">ყველაფერი პროდუქტის შესახებ</h3>
+            </div>
+
+            <div class="divide-y divide-neutral-200 border-y border-neutral-200">
+                <details class="group py-5 cursor-pointer" open>
+                    <summary class="flex items-center justify-between font-medium text-sm sm:text-base list-none">
+                        <span>აშრობს თუ არა თმას ST Sea Touch სპრეი?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
+                        არა. ჩვენი ფორმულა გამდიდრებულია ალოე ვერას ექსტრაქტითა და პრო-ვიტამინ B5-ით, რაც იცავს თმას გამოშრობისგან და პირიქით — ეხმარება ხვეულ თმას სტრუქტურის აღდგენასა და დატენიანებაში.
+                    </p>
+                </details>
+
+                <details class="group py-5 cursor-pointer">
+                    <summary class="flex items-center justify-between font-medium text-sm sm:text-base list-none">
+                        <span>რომელი ტიპის თმისთვის არის განკუთვნილი?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
+                        იდეალურია როგორც ხვეული და ტალღოვანი თმის აღსადგენად, ასევე სწორი თმისთვის ბუნებრივი მოცულობისა და მქრქალი ტექსტურის მისანიჭებლად. განკუთვნილია როგორც მამაკაცებისთვის, ისე ქალბატონებისთვის.
+                    </p>
+                </details>
+
+                <details class="group py-5 cursor-pointer">
+                    <summary class="flex items-center justify-between font-medium text-sm sm:text-base list-none">
+                        <span>როგორ ხდება შეკვეთა და მიწოდება საქართველოში?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
+                        შეკვეთის გაფორმება შეგიძლიათ პირდაპირ საიტიდან ("Buy Now" ღილაკით) ან მოგვწეროთ ელ-ფოსტაზე <strong>stseatouch@gmail.com</strong>. მიწოდება ხორციელდება მთელი საქართველოს მასშტაბით.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & FOOTER CARD (Directly Matching Smartphone Mockup Dark Rounded Card) -->
+    <footer id="contact" class="bg-white pt-8 pb-10 px-4 sm:px-8 lg:px-12">
+        <div class="max-w-5xl mx-auto rounded-3xl bg-[#0D0D0D] text-white p-8 sm:p-12 shadow-2xl border border-neutral-800">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+
+                <!-- Contact Details matching exact mockup text -->
+                <div class="space-y-2">
+                    <h3 class="text-lg sm:text-xl font-medium tracking-wide text-white">კონტაქტი:</h3>
+                    <p class="text-sm text-neutral-300 font-light">- პირველი საქართველოში</p>
+                    <div class="pt-1 flex flex-wrap items-center justify-center md:justify-start gap-3">
+                        <a href="mailto:stseatouch@gmail.com" class="text-base sm:text-lg font-medium text-white hover:underline tracking-wide">
+                            stseatouch@gmail.com
+                        </a>
+                        <button id="copy-email-btn" class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white hover:text-black transition text-xs">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span id="copy-email-label">კოპირება</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Direct Message Trigger & Brand Copyright -->
+                <div class="flex flex-col items-center md:items-end space-y-3">
+                    <div class="flex flex-wrap items-center justify-center gap-3">
+                        <button id="open-contact-modal-btn" class="px-6 py-3 rounded-full bg-white text-black hover:bg-neutral-200 transition text-xs sm:text-sm font-medium tracking-wide">
+                            მოგვწერეთ შეტყობინება
+                        </button>
+                        <button id="open-admin-btn" class="inline-flex items-center space-x-2 px-5 py-3 rounded-full border border-white/25 text-neutral-300 hover:bg-white hover:text-black transition text-xs sm:text-sm font-medium tracking-wide">
+                            <i data-lucide="shield-check" class="w-4 h-4"></i>
+                            <span>ადმინ პანელი</span>
+                        </button>
+                    </div>
+                    <span class="text-[11px] text-neutral-500 tracking-wider uppercase">
+                        © 2026 ST SEA TOUCH GEORGIA
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIVE SEARCH MODAL ('ძებნა') -->
+    <div id="search-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-start justify-center pt-20 px-4">
+        <div class="w-full max-w-lg rounded-3xl bg-charcoal border border-white/15 p-6 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                <div class="flex items-center space-x-3 flex-1">
+                    <i data-lucide="search" class="w-4 h-4 text-neutral-400"></i>
+                    <input id="live-search-input" type="text" placeholder="ძებნა: Sea Salt, ხვეული თმა, ალოე ვერა..." class="w-full bg-transparent text-white text-sm focus:outline-none">
+                </div>
+                <button id="close-search-btn" class="p-1.5 rounded-full hover:bg-white/10 text-neutral-400 hover:text-white">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+            <div id="search-results-list" class="space-y-2 max-h-64 overflow-y-auto text-sm">
+                <!-- Populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE-OVER SHOPPING CART & CHECKOUT DRAWER -->
+    <div id="cart-backdrop" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden"></div>
+    <aside id="cart-drawer" class="fixed top-0 right-0 z-50 h-full w-full max-w-md bg-charcoal border-l border-white/15 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-6 sm:p-8">
+        <div class="overflow-y-auto pr-1">
+            <div class="flex items-center justify-between pb-5 border-b border-white/10">
+                <h3 class="text-sm uppercase tracking-[0.2em] font-medium">თქვენი კალათა</h3>
+                <button id="close-cart-btn" class="p-2 rounded-full hover:bg-white/10 transition">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Cart Product Item -->
+            <div id="cart-items-area" class="py-6"></div>
+
+            <!-- Georgian Delivery Form inside Checkout -->
+            <form id="checkout-form" class="hidden space-y-3.5 pt-4 border-t border-white/10">
+                <h4 class="text-xs uppercase tracking-[0.18em] text-neutral-400">მიწოდების დეტალები</h4>
+                <input id="order-name" type="text" required placeholder="სახელი და გვარი" class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian border border-white/15 text-white text-xs sm:text-sm focus:outline-none focus:border-white">
+                <input id="order-phone" type="tel" required placeholder="ტელეფონის ნომერი (5XX XX XX XX)" class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian border border-white/15 text-white text-xs sm:text-sm focus:outline-none focus:border-white">
+                <input id="order-address" type="text" required placeholder="ქალაქი და მისამართი (მაგ: თბილისი / ბათუმი...)" class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian border border-white/15 text-white text-xs sm:text-sm focus:outline-none focus:border-white">
+                <input id="order-note" type="text" placeholder="დამატებითი კომენტარი (არასავალდებულო)" class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian border border-white/15 text-white text-xs sm:text-sm focus:outline-none focus:border-white">
+                <button id="submit-order-btn" type="submit" class="w-full py-3.5 rounded-full bg-white text-black hover:bg-neutral-200 transition font-medium text-xs sm:text-sm tracking-wide">
+                    შეკვეთის დადასტურება
+                </button>
+            </form>
+
+            <!-- Order Confirmation Receipt Box -->
+            <div id="order-success-box" class="hidden mt-4 p-5 rounded-2xl bg-obsidian border border-white/30 text-center space-y-2.5">
+                <div class="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center mx-auto">
+                    <i data-lucide="check" class="w-5 h-5"></i>
+                </div>
+                <h4 class="text-base font-medium text-white">შეკვეთა წარმატებით გაფორმდა!</h4>
+                <p class="text-xs text-neutral-400">შეკვეთის კოდი: <span id="confirmed-order-code" class="text-white font-semibold">#ST-0000</span></p>
+                <p class="text-xs text-neutral-400 leading-relaxed">ჩვენი გუნდი უახლოეს დროში დაგიკავშირდებათ მითითებულ ნომერზე.</p>
+            </div>
+        </div>
+
+        <div id="cart-summary-footer" class="hidden border-t border-white/10 pt-4">
+            <div class="flex justify-between items-center">
+                <span class="text-xs text-neutral-400 uppercase tracking-wider">სულ გადასახდელი:</span>
+                <span id="cart-total-amount" class="text-xl font-medium text-white">45 ₾</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- QUICK CONTACT MESSAGE MODAL -->
+    <div id="contact-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="w-full max-w-md rounded-3xl bg-charcoal border border-white/15 p-6 sm:p-8 shadow-2xl space-y-5">
+            <div class="flex items-center justify-between">
+                <h3 class="text-lg font-medium">მოგვწერეთ — ST SEA TOUCH</h3>
+                <button id="close-contact-modal-btn" class="p-1.5 rounded-full hover:bg-white/10 text-neutral-400 hover:text-white">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+            <p class="text-xs text-neutral-400">ელ-ფოსტა: <span class="text-white">stseatouch@gmail.com</span></p>
+            <form id="quick-contact-form" class="space-y-3.5">
+                <input type="text" required placeholder="თქვენი სახელი" class="w-full px-4 py-3 rounded-xl bg-obsidian border border-white/15 text-white text-sm focus:outline-none focus:border-white">
+                <input type="email" required placeholder="თქვენი ელ-ფოსტა" class="w-full px-4 py-3 rounded-xl bg-obsidian border border-white/15 text-white text-sm focus:outline-none focus:border-white">
+                <textarea rows="3" required placeholder="შეტყობინება..." class="w-full px-4 py-3 rounded-xl bg-obsidian border border-white/15 text-white text-sm focus:outline-none focus:border-white resize-none"></textarea>
+                <button type="submit" class="w-full py-3.5 rounded-full bg-white text-black hover:bg-neutral-200 transition font-medium text-sm">
+                    გაგზავნა
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 rounded-full bg-white text-black shadow-2xl border border-neutral-200 flex items-center space-x-2.5 text-xs sm:text-sm font-medium opacity-0 pointer-events-none transition-all duration-300">
+        <i data-lucide="check" class="w-4 h-4 text-black"></i>
+        <span id="toast-text">შეტყობინება</span>
+    </div>
+
+    <!-- ADMIN LOGIN & REAL-TIME DASHBOARD MODAL -->
+    <div id="admin-overlay" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-lg hidden overflow-y-auto">
+        <div class="min-h-screen max-w-7xl mx-auto px-4 sm:px-8 py-6 sm:py-10 flex flex-col">
+
+            <!-- Top Admin Bar -->
+            <div class="flex items-center justify-between pb-6 border-b border-white/15">
+                <div class="flex items-center space-x-3">
+                    <div class="w-9 h-9 rounded-full bg-white text-black flex items-center justify-center font-display font-bold text-sm">
+                        ST
+                    </div>
+                    <div>
+                        <span class="block text-sm sm:text-base font-medium tracking-wide text-white">ST SEA TOUCH — ADMIN</span>
+                        <span class="block text-[11px] text-neutral-400">რეალურ დროში მართვის სისტემა</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button id="admin-logout-btn" class="hidden px-4 py-2 rounded-full border border-white/25 text-xs text-neutral-300 hover:bg-white hover:text-black transition">
+                        გასვლა
+                    </button>
+                    <button id="close-admin-btn" class="p-2.5 rounded-full bg-white/10 hover:bg-white hover:text-black text-white transition" aria-label="დახურვა">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- STEP 1: ADMIN SPECIAL LOGIN SCREEN -->
+            <div id="admin-login-view" class="flex-1 flex items-center justify-center py-12">
+                <div class="w-full max-w-md rounded-3xl bg-charcoal border border-white/15 p-7 sm:p-9 shadow-2xl space-y-6">
+                    <div class="text-center space-y-2">
+                        <div class="w-12 h-12 rounded-2xl bg-white text-black flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="lock" class="w-5 h-5"></i>
+                        </div>
+                        <h2 class="text-xl sm:text-2xl font-medium text-white">ადმინისტრატორის შესვლა</h2>
+                        <p class="text-xs text-neutral-400">შეიყვანეთ სპეციალური მონაცემები გაყიდვებისა და ფასების სამართავად</p>
+                    </div>
+
+                    <form id="admin-login-form" class="space-y-4">
+                        <div class="space-y-1.5">
+                            <label class="text-xs text-neutral-400">ადმინის ელ-ფოსტა</label>
+                            <input id="admin-email-input" type="email" required placeholder="stseatouch@gmail.com" class="w-full px-4 py-3 rounded-xl bg-obsidian border border-white/15 text-white text-sm focus:outline-none focus:border-white">
+                        </div>
+                        <div class="space-y-1.5">
+                            <label class="text-xs text-neutral-400">სპეციალური პაროლი</label>
+                            <input id="admin-pass-input" type="password" required placeholder="••••••••" class="w-full px-4 py-3 rounded-xl bg-obsidian border border-white/15 text-white text-sm focus:outline-none focus:border-white">
+                        </div>
+                        <p id="admin-login-error" class="hidden text-xs text-red-400 text-center">ელ-ფოსტა ან პაროლი არასწორია</p>
+                        <button type="submit" class="w-full py-3.5 rounded-full bg-white text-black hover:bg-neutral-200 transition font-medium text-sm tracking-wide">
+                            პანელში შესვლა
+                        </button>
+                    </form>
+
+                    <!-- Quick Demo Credentials Helper -->
+                    <div class="pt-4 border-t border-white/10 text-center space-y-2">
+                        <p class="text-[11px] text-neutral-500">სატესტო წვდომის მონაცემები:</p>
+                        <div class="inline-flex flex-col sm:flex-row items-center gap-2 text-[11px] bg-obsidian px-3.5 py-2 rounded-xl border border-white/10 text-neutral-300">
+                            <span>stseatouch@gmail.com</span>
+                            <span class="hidden sm:inline text-neutral-600">|</span>
+                            <span>პაროლი: <strong>stadmin2026</strong></span>
+                        </div>
+                        <div>
+                            <button id="fill-demo-admin-btn" type="button" class="text-[11px] text-white underline hover:text-neutral-300">
+                                ავტომატური შევსება
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 2: REAL-TIME ADMIN DASHBOARD -->
+            <div id="admin-dashboard-view" class="hidden py-8 space-y-8">
+
+                <!-- Live Status Banner -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl bg-charcoal border border-white/15">
+                    <div class="flex items-center space-x-2.5">
+                        <span class="relative flex h-2.5 w-2.5">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>
+                        </span>
+                        <span class="text-xs sm:text-sm text-neutral-200">სისტემა დაკავშირებულია — შეკვეთები და ფასები ახლდება რეალურ დროში</span>
+                    </div>
+                    <button id="admin-test-order-btn" class="px-4 py-2 rounded-full bg-white/10 hover:bg-white hover:text-black text-white text-xs font-medium transition">
+                        + სატესტო შეკვეთის დამატება
+                    </button>
+                </div>
+
+                <!-- 4 Live KPI Cards -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                    <div class="p-5 sm:p-6 rounded-3xl bg-charcoal border border-white/15 space-y-2">
+                        <span class="text-[11px] uppercase tracking-wider text-neutral-400">სულ შეკვეთები</span>
+                        <div id="kpi-total-orders" class="text-2xl sm:text-3xl font-semibold text-white">0</div>
+                        <span class="text-[11px] text-neutral-500">ყველა დაფიქსირებული</span>
+                    </div>
+                    <div class="p-5 sm:p-6 rounded-3xl bg-charcoal border border-white/15 space-y-2">
+                        <span class="text-[11px] uppercase tracking-wider text-neutral-400">მთლიანი შემოსავალი</span>
+                        <div id="kpi-total-revenue" class="text-2xl sm:text-3xl font-semibold text-white">0 ₾</div>
+                        <span class="text-[11px] text-neutral-500">გაუქმებულის გარდა</span>
+                    </div>
+                    <div class="p-5 sm:p-6 rounded-3xl bg-charcoal border border-white/15 space-y-2">
+                        <span class="text-[11px] uppercase tracking-wider text-neutral-400">ახალი შეკვეთები</span>
+                        <div id="kpi-pending-orders" class="text-2xl sm:text-3xl font-semibold text-white">0</div>
+                        <span class="text-[11px] text-neutral-500">საჭიროებს დამუშავებას</span>
+                    </div>
+                    <div class="p-5 sm:p-6 rounded-3xl bg-white text-black space-y-2">
+                        <span class="text-[11px] uppercase tracking-wider text-neutral-600 font-semibold">მიმდინარე ფასი</span>
+                        <div id="kpi-current-price" class="text-2xl sm:text-3xl font-bold text-black">45 ₾</div>
+                        <span class="text-[11px] text-neutral-600">ST Sea Touch 150ml</span>
+                    </div>
+                </div>
+
+                <!-- Real-Time Product Price & Stock Control Card -->
+                <div class="p-6 sm:p-8 rounded-3xl bg-charcoal border border-white/15">
+                    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+                        <div class="space-y-1">
+                            <span class="text-[11px] uppercase tracking-[0.2em] text-neutral-400">პროდუქტის მართვა</span>
+                            <h3 class="text-lg sm:text-xl font-medium text-white">ფასისა და სტატუსის შეცვლა საიტზე</h3>
+                            <p class="text-xs text-neutral-400">აქ შეცვლილი ფასი მომენტალურად აისახება მთავარ გვერდსა და კალათაში.</p>
+                        </div>
+
+                        <form id="admin-price-form" class="flex flex-col sm:flex-row items-stretch sm:items-end gap-3 w-full lg:w-auto">
+                            <div class="space-y-1">
+                                <label class="text-[11px] text-neutral-400">ახალი ფასი (₾)</label>
+                                <input id="admin-new-price-input" type="number" min="1" step="1" required value="45" class="w-full sm:w-32 px-4 py-2.5 rounded-xl bg-obsidian border border-white/20 text-white text-sm focus:outline-none focus:border-white">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[11px] text-neutral-400">მარაგის სტატუსი</label>
+                                <select id="admin-stock-select" class="w-full sm:w-44 px-3.5 py-2.5 rounded-xl bg-obsidian border border-white/20 text-white text-sm focus:outline-none focus:border-white">
+                                    <option value="მარაგშია">მარაგშია</option>
+                                    <option value="შეზღუდული რაოდენობა">შეზღუდული რაოდენობა</option>
+                                    <option value="დროებით ამოწურულია">დროებით ამოწურულია</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="px-6 py-2.5 rounded-xl bg-white text-black hover:bg-neutral-200 transition font-medium text-sm">
+                                განახლება
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Real-Time Orders Table -->
+                <div class="rounded-3xl bg-charcoal border border-white/15 overflow-hidden">
+                    <div class="p-6 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div>
+                            <h3 class="text-lg font-medium text-white">შემოსული შეკვეთები (Live)</h3>
+                            <p class="text-xs text-neutral-400">მომხმარებლების შეკვეთები ავტომატურად ჩნდება შევსებისთანავე</p>
+                        </div>
+                        <select id="admin-status-filter" class="px-3.5 py-2 rounded-xl bg-obsidian border border-white/15 text-xs text-white focus:outline-none">
+                            <option value="ALL">ყველა სტატუსი</option>
+                            <option value="ახალი">ახალი</option>
+                            <option value="მზადდება">მზადდება</option>
+                            <option value="გაგზავნილია">გაგზავნილია</option>
+                            <option value="დასრულებული">დასრულებული</option>
+                            <option value="გაუქმებული">გაუქმებული</option>
+                        </select>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="border-b border-white/10 text-[11px] uppercase tracking-wider text-neutral-400 bg-obsidian/60">
+                                    <th class="py-3.5 px-4">კოდი / დრო</th>
+                                    <th class="py-3.5 px-4">მომხმარებელი</th>
+                                    <th class="py-3.5 px-4">ტელეფონი</th>
+                                    <th class="py-3.5 px-4">მისამართი</th>
+                                    <th class="py-3.5 px-4">რაოდ. / ჯამი</th>
+                                    <th class="py-3.5 px-4">სტატუსი</th>
+                                    <th class="py-3.5 px-4 text-right">მოქმედება</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-orders-tbody" class="divide-y divide-white/10 text-xs sm:text-sm">
+                                <tr>
+                                    <td colspan="7" class="py-10 text-center text-neutral-500 text-xs">
+                                        შეკვეთები იტვირთება...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, addDoc, updateDoc, deleteDoc, onSnapshot, collection } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        lucide.createIcons();
+
+        // Firebase Initialization
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'st-sea-touch-store';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+        let db = null;
+        let auth = null;
+        let currentUser = null;
+
+        // Live Store State
+        let currentPrice = 45;
+        let currentStock = 'მარაგშია';
+        let selectedQty = 1;
+        let cartQty = 0;
+        let allOrders = [];
+        let isAdminLoggedIn = false;
+
+        // Toast Helper
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-text').textContent = msg;
+            toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
+                toast.classList.remove('opacity-100', 'translate-y-0');
+            }, 3200);
+        }
+
+        // Sync Price & Stock across Storefront and Admin UI
+        function applyProductSettings(price, stock) {
+            currentPrice = Number(price) || 45;
+            currentStock = stock || 'მარაგშია';
+
+            const heroPrice = document.getElementById('hero-price-display');
+            const heroStock = document.getElementById('hero-stock-badge');
+            const kpiPrice = document.getElementById('kpi-current-price');
+            const adminPriceInput = document.getElementById('admin-new-price-input');
+            const adminStockSelect = document.getElementById('admin-stock-select');
+
+            if (heroPrice) heroPrice.textContent = `${currentPrice} ₾`;
+            if (heroStock) heroStock.textContent = `/ 150ml | 5.1 fl. oz. • ${currentStock}`;
+            if (kpiPrice) kpiPrice.textContent = `${currentPrice} ₾`;
+            if (adminPriceInput && document.activeElement !== adminPriceInput) {
+                adminPriceInput.value = currentPrice;
+            }
+            if (adminStockSelect && document.activeElement !== adminStockSelect) {
+                adminStockSelect.value = currentStock;
+            }
+            renderCart();
+        }
+
+        // Quantity Selector
+        const qtyDisplay = document.getElementById('product-qty');
+        document.getElementById('qty-minus').addEventListener('click', () => {
+            if (selectedQty > 1) {
+                selectedQty--;
+                qtyDisplay.textContent = selectedQty;
+            }
+        });
+        document.getElementById('qty-plus').addEventListener('click', () => {
+            if (selectedQty < 20) {
+                selectedQty++;
+                qtyDisplay.textContent = selectedQty;
+            }
+        });
+
+        // Cart Drawer Logic
+        const cartDrawer = document.getElementById('cart-drawer');
+        const cartBackdrop = document.getElementById('cart-backdrop');
+        const cartBadge = document.getElementById('cart-badge');
+        const cartItemsArea = document.getElementById('cart-items-area');
+        const checkoutForm = document.getElementById('checkout-form');
+        const cartSummaryFooter = document.getElementById('cart-summary-footer');
+        const cartTotalAmount = document.getElementById('cart-total-amount');
+        const orderSuccessBox = document.getElementById('order-success-box');
+
+        function renderCart() {
+            cartBadge.textContent = cartQty;
+            if (cartQty === 0) {
+                cartItemsArea.innerHTML = `
+                    <div class="text-center py-10 space-y-2">
+                        <p class="text-sm text-neutral-300">კალათა ცარიელია</p>
+                        <p class="text-xs text-neutral-500">დაამატეთ ST Sea Touch Spray (150ml)</p>
+                    </div>
+                `;
+                checkoutForm.classList.add('hidden');
+                cartSummaryFooter.classList.add('hidden');
+            } else {
+                orderSuccessBox.classList.add('hidden');
+                checkoutForm.classList.remove('hidden');
+                cartSummaryFooter.classList.remove('hidden');
+                cartTotalAmount.textContent = `${cartQty * currentPrice} ₾`;
+                cartItemsArea.innerHTML = `
+                    <div class="flex items-center justify-between p-4 rounded-2xl bg-obsidian border border-white/15">
+                        <div class="space-y-1">
+                            <span class="text-[10px] uppercase tracking-[0.2em] text-neutral-400">ST SEA TOUCH</span>
+                            <h4 class="text-sm font-medium text-white">Sea Salt Spray — 150ml</h4>
+                            <p class="text-xs text-neutral-400">${currentPrice} ₾ × ${cartQty}</p>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button onclick="changeCartQty(-1)" class="w-7 h-7 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition text-xs">-</button>
+                            <span class="text-xs font-medium w-4 text-center">${cartQty}</span>
+                            <button onclick="changeCartQty(1)" class="w-7 h-7 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition text-xs">+</button>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        window.changeCartQty = function(delta) {
+            cartQty = Math.max(0, cartQty + delta);
+            renderCart();
+        };
+
+        function openCart() {
+            renderCart();
+            cartBackdrop.classList.remove('hidden');
+            cartDrawer.classList.remove('translate-x-full');
+        }
+
+        function closeCart() {
+            cartBackdrop.classList.add('hidden');
+            cartDrawer.classList.add('translate-x-full');
+        }
+
+        document.getElementById('buy-now-btn').addEventListener('click', () => {
+            if (cartQty === 0) cartQty = selectedQty;
+            else cartQty += selectedQty;
+            selectedQty = 1;
+            qtyDisplay.textContent = 1;
+            openCart();
+        });
+
+        document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+            cartQty += selectedQty;
+            selectedQty = 1;
+            qtyDisplay.textContent = 1;
+            renderCart();
+            showToast('პროდუქტი დაემატა კალათაში');
+        });
+
+        document.getElementById('open-cart-btn').addEventListener('click', openCart);
+        document.getElementById('close-cart-btn').addEventListener('click', closeCart);
+        cartBackdrop.addEventListener('click', closeCart);
+
+        // Real-Time Order Submission to Firestore
+        checkoutForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (cartQty <= 0) return;
+
+            const submitBtn = document.getElementById('submit-order-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'იგზავნება...';
+
+            const orderCode = 'ST-' + Math.floor(1000 + Math.random() * 9000);
+            const orderPayload = {
+                orderCode,
+                customerName: document.getElementById('order-name').value.trim(),
+                phone: document.getElementById('order-phone').value.trim(),
+                address: document.getElementById('order-address').value.trim(),
+                note: document.getElementById('order-note').value.trim(),
+                quantity: cartQty,
+                unitPrice: currentPrice,
+                totalAmount: cartQty * currentPrice,
+                status: 'ახალი',
+                createdAt: Date.now()
+            };
+
+            try {
+                if (db && currentUser) {
+                    const ordersCol = collection(db, 'artifacts', appId, 'public', 'data', 'orders');
+                    await addDoc(ordersCol, orderPayload);
+                } else {
+                    allOrders.unshift({ id: orderCode, ...orderPayload });
+                    renderAdminDashboard();
+                }
+
+                checkoutForm.reset();
+                cartQty = 0;
+                renderCart();
+                document.getElementById('confirmed-order-code').textContent = `#${orderCode}`;
+                orderSuccessBox.classList.remove('hidden');
+                showToast('შეკვეთა გაიგზავნა და აისახა სისტემაში!');
+            } catch (err) {
+                console.error('Order error:', err);
+                showToast('შეცდომა შეკვეთის გაგზავნისას');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'შეკვეთის დადასტურება';
+            }
+        });
+
+        // Admin Panel Modal & Special Authentication
+        const adminOverlay = document.getElementById('admin-overlay');
+        const adminLoginView = document.getElementById('admin-login-view');
+        const adminDashboardView = document.getElementById('admin-dashboard-view');
+        const adminLogoutBtn = document.getElementById('admin-logout-btn');
+        const adminLoginError = document.getElementById('admin-login-error');
+
+        // Special Admin Credentials
+        const ADMIN_EMAIL = 'stseatouch@gmail.com';
+        const ADMIN_PASS = 'stadmin2026';
+
+        function openAdminOverlay() {
+            adminOverlay.classList.remove('hidden');
+            if (isAdminLoggedIn) {
+                adminLoginView.classList.add('hidden');
+                adminDashboardView.classList.remove('hidden');
+                adminLogoutBtn.classList.remove('hidden');
+                renderAdminDashboard();
+            } else {
+                adminLoginView.classList.remove('hidden');
+                adminDashboardView.classList.add('hidden');
+                adminLogoutBtn.classList.add('hidden');
+            }
+        }
+
+        document.getElementById('open-admin-btn').addEventListener('click', openAdminOverlay);
+        document.getElementById('close-admin-btn').addEventListener('click', () => {
+            adminOverlay.classList.add('hidden');
+        });
+
+        document.getElementById('fill-demo-admin-btn').addEventListener('click', () => {
+            document.getElementById('admin-email-input').value = ADMIN_EMAIL;
+            document.getElementById('admin-pass-input').value = ADMIN_PASS;
+        });
+
+        document.getElementById('admin-login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailVal = document.getElementById('admin-email-input').value.trim().toLowerCase();
+            const passVal = document.getElementById('admin-pass-input').value;
+
+            if (emailVal === ADMIN_EMAIL && passVal === ADMIN_PASS) {
+                isAdminLoggedIn = true;
+                adminLoginError.classList.add('hidden');
+                adminLoginView.classList.add('hidden');
+                adminDashboardView.classList.remove('hidden');
+                adminLogoutBtn.classList.remove('hidden');
+                renderAdminDashboard();
+                showToast('მოგესალმებით ადმინ პანელში!');
+            } else {
+                adminLoginError.classList.remove('hidden');
+            }
+        });
+
+        adminLogoutBtn.addEventListener('click', () => {
+            isAdminLoggedIn = false;
+            document.getElementById('admin-pass-input').value = '';
+            adminDashboardView.classList.add('hidden');
+            adminLogoutBtn.classList.add('hidden');
+            adminLoginView.classList.remove('hidden');
+            showToast('გამოხვედით ადმინ პანელიდან');
+        });
+
+        // Update Price & Stock in Real Time
+        document.getElementById('admin-price-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const newPrice = Number(document.getElementById('admin-new-price-input').value);
+            const newStock = document.getElementById('admin-stock-select').value;
+            if (!newPrice || newPrice <= 0) return;
+
+            try {
+                if (db && currentUser) {
+                    const settingsRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'productConfig');
+                    await setDoc(settingsRef, {
+                        price: newPrice,
+                        stockStatus: newStock,
+                        updatedAt: Date.now()
+                    }, { merge: true });
+                } else {
+                    applyProductSettings(newPrice, newStock);
+                }
+                showToast(`ფასი განახლდა: ${newPrice} ₾`);
+            } catch (err) {
+                console.error('Price update error:', err);
+                showToast('ფასის განახლება ვერ მოხერხდა');
+            }
+        });
+
+        // Quick Test Order from Admin Panel
+        document.getElementById('admin-test-order-btn').addEventListener('click', async () => {
+            const sampleNames = ['გიორგი ბერიძე', 'ნინო კაპანაძე', 'ლუკა მაისურაძე', 'მარიამ გელაშვილი'];
+            const sampleCities = ['თბილისი, ჭავჭავაძის 14', 'ბათუმი, რუსთაველის 22', 'ქუთაისი, წერეთლის 8'];
+            const qty = Math.floor(Math.random() * 2) + 1;
+            const orderCode = 'ST-' + Math.floor(1000 + Math.random() * 9000);
+
+            const sampleOrder = {
+                orderCode,
+                customerName: sampleNames[Math.floor(Math.random() * sampleNames.length)],
+                phone: '555 ' + Math.floor(100000 + Math.random() * 899999),
+                address: sampleCities[Math.floor(Math.random() * sampleCities.length)],
+                note: 'სატესტო შეკვეთა',
+                quantity: qty,
+                unitPrice: currentPrice,
+                totalAmount: qty * currentPrice,
+                status: 'ახალი',
+                createdAt: Date.now()
+            };
+
+            if (db && currentUser) {
+                await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'orders'), sampleOrder);
+            } else {
+                allOrders.unshift({ id: orderCode, ...sampleOrder });
+                renderAdminDashboard();
+            }
+            showToast('სატესტო შეკვეთა დაემატა');
+        });
+
+        // Render Real-Time Orders & KPIs in Admin Dashboard
+        function renderAdminDashboard() {
+            const sortedOrders = [...allOrders].sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+            const filterVal = document.getElementById('admin-status-filter').value;
+            const filtered = filterVal === 'ALL' ? sortedOrders : sortedOrders.filter(o => o.status === filterVal);
+
+            // Calculate Live KPIs
+            const totalOrdersCount = sortedOrders.length;
+            const validRevenue = sortedOrders
+                .filter(o => o.status !== 'გაუქმებული')
+                .reduce((sum, o) => sum + (Number(o.totalAmount) || 0), 0);
+            const pendingCount = sortedOrders.filter(o => o.status === 'ახალი' || o.status === 'მზადდება').length;
+
+            document.getElementById('kpi-total-orders').textContent = totalOrdersCount;
+            document.getElementById('kpi-total-revenue').textContent = `${validRevenue} ₾`;
+            document.getElementById('kpi-pending-orders').textContent = pendingCount;
+            document.getElementById('kpi-current-price').textContent = `${currentPrice} ₾`;
+
+            const tbody = document.getElementById('admin-orders-tbody');
+            if (filtered.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="py-10 text-center text-neutral-500 text-xs">
+                            ამ კატეგორიაში შეკვეთები ჯერ არ არის
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = filtered.map(order => {
+                const dateStr = order.createdAt
+                    ? new Date(order.createdAt).toLocaleString('ka-GE', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+                    : 'ახლახანს';
+
+                const statusBadgeStyle =
+                    order.status === 'ახალი' ? 'bg-white text-black font-semibold' :
+                    order.status === 'დასრულებული' ? 'bg-neutral-800 text-neutral-300 border border-white/20' :
+                    order.status === 'გაუქმებული' ? 'bg-red-950/60 text-red-300 border border-red-500/30' :
+                    'bg-neutral-900 text-white border border-white/25';
+
+                return `
+                    <tr class="hover:bg-white/[0.03] transition">
+                        <td class="py-3.5 px-4 whitespace-nowrap">
+                            <div class="font-medium text-white">#${order.orderCode || order.id.slice(0, 6)}</div>
+                            <div class="text-[11px] text-neutral-500">${dateStr}</div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="font-medium text-white">${order.customerName || '-'}</div>
+                            ${order.note ? `<div class="text-[11px] text-neutral-400">${order.note}</div>` : ''}
+                        </td>
+                        <td class="py-3.5 px-4 whitespace-nowrap text-neutral-200">${order.phone || '-'}</td>
+                        <td class="py-3.5 px-4 text-neutral-300 max-w-[200px] truncate" title="${order.address || ''}">${order.address || '-'}</td>
+                        <td class="py-3.5 px-4 whitespace-nowrap">
+                            <span class="font-semibold text-white">${order.totalAmount || 0} ₾</span>
+                            <span class="text-xs text-neutral-400">(${order.quantity || 1} ც.)</span>
+                        </td>
+                        <td class="py-3.5 px-4 whitespace-nowrap">
+                            <select onchange="updateOrderStatus('${order.id}', this.value)" class="px-2.5 py-1.5 rounded-lg text-xs focus:outline-none ${statusBadgeStyle}">
+                                <option value="ახალი" ${order.status === 'ახალი' ? 'selected' : ''}>ახალი</option>
+                                <option value="მზადდება" ${order.status === 'მზადდება' ? 'selected' : ''}>მზადდება</option>
+                                <option value="გაგზავნილია" ${order.status === 'გაგზავნილია' ? 'selected' : ''}>გაგზავნილია</option>
+                                <option value="დასრულებული" ${order.status === 'დასრულებული' ? 'selected' : ''}>დასრულებული</option>
+                                <option value="გაუქმებული" ${order.status === 'გაუქმებული' ? 'selected' : ''}>გაუქმებული</option>
+                            </select>
+                        </td>
+                        <td class="py-3.5 px-4 text-right whitespace-nowrap">
+                            <button onclick="deleteOrderRecord('${order.id}')" title="წაშლა" class="p-2 rounded-lg text-neutral-400 hover:text-red-400 hover:bg-white/5 transition">
+                                <i data-lucide="trash-2" class="w-4 h-4"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        document.getElementById('admin-status-filter').addEventListener('change', renderAdminDashboard);
+
+        window.updateOrderStatus = async function(orderId, newStatus) {
+            try {
+                if (db && currentUser) {
+                    const orderRef = doc(db, 'artifacts', appId, 'public', 'data', 'orders', orderId);
+                    await updateDoc(orderRef, { status: newStatus });
+                } else {
+                    const target = allOrders.find(o => o.id === orderId);
+                    if (target) target.status = newStatus;
+                    renderAdminDashboard();
+                }
+                showToast(`სტატუსი შეიცვალა: ${newStatus}`);
+            } catch (err) {
+                console.error('Status update error:', err);
+            }
+        };
+
+        window.deleteOrderRecord = async function(orderId) {
+            try {
+                if (db && currentUser) {
+                    const orderRef = doc(db, 'artifacts', appId, 'public', 'data', 'orders', orderId);
+                    await deleteDoc(orderRef);
+                } else {
+                    allOrders = allOrders.filter(o => o.id !== orderId);
+                    renderAdminDashboard();
+                }
+                showToast('შეკვეთა წაიშალა');
+            } catch (err) {
+                console.error('Delete order error:', err);
+            }
+        };
+
+        // Interactive Effect Tabs
+        const effectData = {
+            curl: {
+                title: 'ხვეული თმის სტრუქტურის აღდგენა და გამოკვეთა',
+                desc: 'იდეალურია მოდუნებული ან დაზიანებული ხვეულებისთვის. ზღვის მინერალებისა და პანთენოლის კომბინაცია აღადგენს თმის ბუნებრივ სპირალს, ხსნის სიმძიმეს და უნარჩუნებს მკაფიო ფორმას მთელი დღის განმავლობაში.',
+                dosage: '4–6 შესხურება ნოტიო თმაზე',
+                finish: 'დასრულება: ბუნებრივი მქრქალი (Matte)'
+            },
+            wave: {
+                title: 'ოკეანის ბუნებრივი ტალღოვანი ტექსტურა',
+                desc: 'ანიჭებს თმას სანაპიროს ბუნებრივ, თავისუფალ ტალღებს ყოველგვარი წებოვნების გარეშე. შესანიშნავია ყოველდღიური სტაილინგისთვის.',
+                dosage: '3–5 შესხურება მშრალ ან ნოტიო თმაზე',
+                finish: 'დასრულება: მსუბუქი ფიქსაცია & ტექსტურა'
+            },
+            volume: {
+                title: 'მოცულობის გაზრდა თმის ძირებიდან',
+                desc: 'ზღვის მარილის მიკრო-მინერალები მატებს თმის ღერს სიმკვრივეს და ქმნის ვიზუალურად უფრო სქელ, მოცულობით ვარცხნილობას.',
+                dosage: '2–4 შესხურება თმის ძირებთან ახლოს',
+                finish: 'დასრულება: ჰაეროვანი მოცულობა'
+            }
+        };
+
+        document.querySelectorAll('.effect-tab').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.effect-tab').forEach(b => {
+                    b.classList.remove('bg-white', 'text-black');
+                    b.classList.add('border', 'border-white/20', 'text-neutral-300');
+                });
+                btn.classList.add('bg-white', 'text-black');
+                btn.classList.remove('border', 'border-white/20', 'text-neutral-300');
+
+                const data = effectData[btn.dataset.effect];
+                document.getElementById('effect-title').textContent = data.title;
+                document.getElementById('effect-desc').textContent = data.desc;
+                document.getElementById('effect-dosage').textContent = data.dosage;
+                document.getElementById('effect-finish').textContent = data.finish;
+            });
+        });
+
+        // Live Search Modal ('ძებნა')
+        const searchModal = document.getElementById('search-modal');
+        const liveSearchInput = document.getElementById('live-search-input');
+        const searchResultsList = document.getElementById('search-results-list');
+
+        function renderSearchResults(query = '') {
+            const searchableItems = [
+                { title: `ST Sea Touch — Sea Salt Spray (150ml) • ${currentPrice} ₾`, desc: 'პირველი საქართველოში • ხვეული თმის აღდგენა და ტექსტურა', href: '#top' },
+                { title: 'ხვეული თმის აღდგენა (Curl Restoration)', desc: 'სპეციალური ფორმულა ხვეული და ტალღოვანი თმის სტრუქტურისთვის', href: '#about-section' },
+                { title: 'შემადგენლობა (Ingredients)', desc: 'ზღვის მინერალური მარილი, ალოე ვერა, პრო-ვიტამინი B5, ქოქოსის წყალი', href: '#ingredients-section' },
+                { title: 'კონტაქტი: stseatouch@gmail.com', desc: 'დაგვიკავშირდით შეკვეთისა და კონსულტაციისთვის', href: '#contact' }
+            ];
+            const q = query.trim().toLowerCase();
+            const filtered = searchableItems.filter(item =>
+                item.title.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q)
+            );
+            searchResultsList.innerHTML = filtered.length ? filtered.map(item => `
+                <a href="${item.href}" onclick="closeSearch()" class="block p-3.5 rounded-2xl bg-obsidian border border-white/10 hover:border-white/40 transition">
+                    <div class="font-medium text-white">${item.title}</div>
+                    <div class="text-xs text-neutral-400 mt-0.5">${item.desc}</div>
+                </a>
+            `).join('') : `<p class="text-xs text-neutral-500 text-center py-4">შედეგი ვერ მოიძებნა</p>`;
+        }
+
+        function openSearch() {
+            searchModal.classList.remove('hidden');
+            searchModal.classList.add('flex');
+            renderSearchResults();
+            setTimeout(() => liveSearchInput.focus(), 50);
+        }
+
+        window.closeSearch = function() {
+            searchModal.classList.add('hidden');
+            searchModal.classList.remove('flex');
+        };
+
+        document.getElementById('open-search-btn').addEventListener('click', openSearch);
+        document.getElementById('mobile-search-bar-trigger').addEventListener('click', openSearch);
+        document.getElementById('close-search-btn').addEventListener('click', closeSearch);
+        liveSearchInput.addEventListener('input', (e) => renderSearchResults(e.target.value));
+
+        // Copy Email to Clipboard
+        document.getElementById('copy-email-btn').addEventListener('click', () => {
+            const el = document.createElement('input');
+            el.value = 'stseatouch@gmail.com';
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            document.getElementById('copy-email-label').textContent = 'დაკოპირდა';
+            showToast('ემაილი დაკოპირდა!');
+            setTimeout(() => {
+                document.getElementById('copy-email-label').textContent = 'კოპირება';
+            }, 2200);
+        });
+
+        // Contact Modal
+        const contactModal = document.getElementById('contact-modal');
+        document.getElementById('open-contact-modal-btn').addEventListener('click', () => {
+            contactModal.classList.remove('hidden');
+            contactModal.classList.add('flex');
+        });
+        document.getElementById('close-contact-modal-btn').addEventListener('click', () => {
+            contactModal.classList.add('hidden');
+            contactModal.classList.remove('flex');
+        });
+        document.getElementById('quick-contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            e.target.reset();
+            contactModal.classList.add('hidden');
+            contactModal.classList.remove('flex');
+            showToast('შეტყობინება გაიგზავნა!');
+        });
+
+        // Allow owner to test replacing product image directly in browser if needed
+        document.getElementById('upload-product-input').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (ev) => {
+                    const img = document.getElementById('custom-product-img');
+                    img.src = ev.target.result;
+                    img.classList.remove('hidden');
+                    document.getElementById('default-bottle-render').classList.add('hidden');
+                    showToast('პროდუქტის ფოტო განახლდა');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Initialize Real-Time Firestore Listeners after Auth
+        async function initRealtimeBackend() {
+            if (!firebaseConfig) {
+                renderCart();
+                return;
+            }
+
+            try {
+                const app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+
+                onAuthStateChanged(auth, (user) => {
+                    if (!user) return;
+                    currentUser = user;
+
+                    // 1. Real-time Product Price & Stock Listener
+                    const settingsRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'productConfig');
+                    onSnapshot(settingsRef, (snap) => {
+                        if (snap.exists()) {
+                            const data = snap.data();
+                            applyProductSettings(data.price, data.stockStatus);
+                        }
+                    }, (err) => console.error('Settings snapshot error:', err));
+
+                    // 2. Real-time Customer Orders Listener
+                    const ordersCol = collection(db, 'artifacts', appId, 'public', 'data', 'orders');
+                    onSnapshot(ordersCol, (snapshot) => {
+                        allOrders = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+                        if (isAdminLoggedIn) {
+                            renderAdminDashboard();
+                        }
+                    }, (err) => console.error('Orders snapshot error:', err));
+                });
+            } catch (err) {
+                console.error('Backend initialization error:', err);
+            }
+        }
+
+        renderCart();
+        initRealtimeBackend();
+    </script>
+</body>
+</html>
